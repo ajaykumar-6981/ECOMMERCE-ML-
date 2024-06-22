@@ -11,11 +11,13 @@ y = dataset.iloc[:, -1].values
 
 print(X)
 
-
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
+
+# Assuming sku is the first column
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
 X = np.array(ct.fit_transform(X))
+
 
 print(X)
 
